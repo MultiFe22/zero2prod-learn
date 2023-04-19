@@ -2,11 +2,11 @@
 // It also spares you from having to specify the `#[test]` attribute. //
 // You can inspect what code gets generated using
 // `cargo expand --test health_check` (<- name of the test file) #[tokio::test]
-use zero2prod::{startup::run, configuration};
-use zero2prod::configuration::get_configuration;
-use sqlx::{PgConnection, Connection};
-use std::net::TcpListener;
 use dotenv::dotenv;
+use sqlx::{Connection, PgConnection};
+use std::net::TcpListener;
+use zero2prod::configuration::get_configuration;
+use zero2prod::{configuration, startup::run};
 
 #[tokio::test]
 async fn health_check_works() {
@@ -14,7 +14,7 @@ async fn health_check_works() {
     let address = spawn_app();
 
     // We need to bring in `reqwest`
-    // to perform HTTP requests against our application. 
+    // to perform HTTP requests against our application.
     let client = reqwest::Client::new();
 
     // Act
@@ -93,9 +93,9 @@ async fn subscribe_returns_a_400_for_invalid_data() {
     }
 }
 
-fn spawn_app () -> String {
+fn spawn_app() -> String {
     let listener = TcpListener::bind("127.0.0.1:0").expect("Failed to bind random port");
-    
+
     // We retrieve the port number assigned to us by the OS.
     // We need to do this because we can't know in advance which port will be assigned to us.
     let port = listener.local_addr().unwrap().port();
