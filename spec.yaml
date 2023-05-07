@@ -1,11 +1,6 @@
 #! spec.yaml
 name: zero2prod
-# Check https://www.digitalocean.com/docs/app-platform/#regional-availability
-# for a list of all the available options.
-# You can get region slugs from
-# https://www.digitalocean.com/docs/platform/availability-matrix/
-# They must specified lowercased.
-# `fra` stands for Frankfurt (Germany - EU)
+
 region: sfo3
 services:
   - name: zero2prod
@@ -37,3 +32,19 @@ services:
     # All incoming requests should be routed to our app
     routes:
     - path: /
+    envs:
+    - key: APP_DATABASE__USERNAME
+      scope: RUN_TIME
+      value: ${newsletter.USERNAME}
+    - key: APP_DATABASE__PASSWORD
+      scope: RUN_TIME
+      value: ${newsletter.PASSWORD}
+    - key: APP_DATABASE__HOST
+      scope: RUN_TIME
+      value: ${newsletter.HOSTNAME}
+    - key: APP_DATABASE__PORT
+      scope: RUN_TIME
+      value: ${newsletter.PORT}
+    - key: APP_DATABASE__DATABASE_NAME
+      scope: RUN_TIME
+      value: ${newsletter.DATABASE}
