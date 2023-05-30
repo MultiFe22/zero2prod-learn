@@ -1,5 +1,8 @@
-use crate::domain::{NewSubscriber, SubscriberName, SubscriberEmail};
-use actix_web::{web::{self, Form}, HttpResponse};
+use crate::domain::{NewSubscriber, SubscriberEmail, SubscriberName};
+use actix_web::{
+    web::{self, Form},
+    HttpResponse,
+};
 use sqlx::PgPool;
 use uuid::Uuid;
 
