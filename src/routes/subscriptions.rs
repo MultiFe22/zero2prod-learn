@@ -1,16 +1,14 @@
-use std::iter::repeat_with;
-
 use crate::domain::{NewSubscriber, SubscriberEmail, SubscriberName};
-use crate::email_client::{self, EmailClient};
+use crate::email_client::EmailClient;
 use crate::startup::ApplicationBaseUrl;
 use actix_web::{
-    web::{self, Form},
+    web::{self},
     HttpResponse,
 };
-use sqlx::{Postgres, Transaction};
 use rand::distributions::Alphanumeric;
 use rand::{thread_rng, Rng};
 use sqlx::PgPool;
+use sqlx::{Postgres, Transaction};
 use uuid::Uuid;
 
 #[derive(serde::Deserialize)]

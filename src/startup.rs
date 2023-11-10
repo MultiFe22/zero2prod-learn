@@ -1,6 +1,6 @@
 use crate::configuration::DatabaseSettings;
-use crate::configuration::{self, Settings};
-use crate::email_client::{self, EmailClient};
+use crate::configuration::Settings;
+use crate::email_client::EmailClient;
 use crate::routes::confirm;
 use crate::routes::{health_check, subscribe};
 use actix_web::dev::Server;

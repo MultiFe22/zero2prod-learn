@@ -1,5 +1,4 @@
 use crate::domain::SubscriberEmail;
-use actix_web::rt::time;
 use reqwest::Client;
 use secrecy::ExposeSecret;
 use secrecy::Secret;
