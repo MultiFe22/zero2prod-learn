@@ -48,3 +48,6 @@ services:
     - key: APP_DATABASE__DATABASE_NAME
       scope: RUN_TIME
       value: ${newsletter.DATABASE}
+    - key: APP_APLICATION_BASE_URL
+      scope: RUN_TIME
+      value: ${APP_URL}
