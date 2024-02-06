@@ -22,7 +22,7 @@ name = "zero2prod"
 [dependencies.reqwest]
 version = "0.11"
 default-features = false
-features = ["rustls-tls", "json"]
+features = ["rustls-tls", "json", "cookies"]
 
 [dev-dependencies]
 once_cell = "1"
@@ -58,6 +58,9 @@ base64 = "0.21"
 sha3 = "0.9"
 rand = { version = "0.8", features = ["std_rng"] }
 argon2 = { version = "0.4", features = ["std"] }
+urlencoding = "2"
+htmlescape = "0.3"
+actix-web-flash-messages = { version = "0.4", features = ["cookies"] }
 
 # Using table-like toml syntax to avoid a super-long line!
 [dependencies.sqlx]
