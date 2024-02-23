@@ -12,3 +12,4 @@ email_client:
   sender_email: "newsletter@localhost.com"
   authorization_token: "1234567890"
   timeout_milliseconds: 10000
+redis_uri: "redis://127.0.0.1:6379"
